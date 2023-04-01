@@ -1,0 +1,21 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: myreplica
+spec:
+  replicas: 2
+  selector:
+     myname: rohit
+  template:
+     metadata:
+         name: testpod
+         labels: 
+              myname: rohit
+
+
+     spec:
+           containers:
+             - name: c00
+               image: ubuntu
+               command: ["/bin/bash","-c","while true;do echo rohit-belwal;sleep 5;done"]
+

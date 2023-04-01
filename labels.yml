@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+ name: labelpod
+ labels:
+     env: environment
+     class: pods
+spec:
+  containers:
+     - name: c00
+       image: ubuntu
+       command: ["bin/bash","-c","while true; do echo Rohit-Belwal;sleep 5; done"]
+

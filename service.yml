@@ -1,0 +1,11 @@
+kind: Service     #define to create service type object
+apiVersion: v1
+metadata: 
+  name: demoservice
+spec:
+ ports:
+  - port: 80                 #containers port exposes
+    targetPort: 80         #pods port
+ selector:
+    name: deployment     #apply this service to any pods which has the specific label
+ type: ClusterIP         #specifies the service type ie custerIP or nodeport 

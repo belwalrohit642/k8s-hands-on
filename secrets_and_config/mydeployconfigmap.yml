@@ -1,0 +1,20 @@
+#AS volume
+kind: Pod
+apiVersion: v1
+metadata:
+ name: myvolconfig
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash","-c","while true;do echo hello-world;sleep 5;done"]
+      volumeMounts:
+        - name: testconfigmap
+          mountPath: "/tmp/config"
+  volumes:
+   - name: testconfigmap
+     configMap:
+       name: mymap
+       items:
+        - key: sample.conf    
+          path: sample.conf

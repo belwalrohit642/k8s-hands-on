@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+ name: testpod
+ annotations:
+    description: hamra pehla testpod create hone ja rha hai 
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash", "-c","while true; do echo hello-rohit; sleep 5; done"]
+  restartPolicy: Never
